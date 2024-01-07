@@ -1,0 +1,1 @@
+<div>Some information</div>
