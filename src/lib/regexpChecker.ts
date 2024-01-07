@@ -1,35 +1,41 @@
 import { safeRegex } from 'safe-regex2';
 
+export enum RegexStatus {
+  invalidJsRegex,
+  unsafe,
+  safe,
+  validationError,
+}
+
 export interface CheckResult {
   error?: string;
-  isSafe?: boolean;
-  isValidJsRegex?: boolean;
+  status: RegexStatus;
+  regexRaw: string;
 }
 
 export function regexpChecker(regexRaw: string, checkForValidity: boolean): CheckResult {
-  const result: CheckResult = {};
-
   if (checkForValidity) {
     try {
       new RegExp(regexRaw);
-      result.isValidJsRegex = true;
     } catch (err: unknown) {
       return {
-        isValidJsRegex: false,
+        regexRaw,
+        status: RegexStatus.invalidJsRegex,
         error: err?.toString() ?? 'unknown'
       }
     }
   }
 
   try {
-    result.isSafe = safeRegex(regexRaw);
+    return {
+      status: safeRegex(regexRaw) ? RegexStatus.safe : RegexStatus.unsafe,
+      regexRaw,
+    } 
   } catch (err: unknown) {
     return {
-      ...result,
-      isSafe: false,
+      regexRaw,
+      status: RegexStatus.validationError,
       error: err?.toString() ?? 'unknown',
     }
   }
-
-  return result;
 }
