@@ -22,6 +22,10 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
       url: 'https://owasp.org/www-community/OWASP_Validation_Regex_Repository',
       title: 'OWASP Validation Regex Repository',
     },
+    {
+      url: 'https://xkcd.com/1313/',
+      title: 'Regex Golf',
+    },
   ];
 </script>
 
