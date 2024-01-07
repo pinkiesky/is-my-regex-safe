@@ -9,8 +9,8 @@ vi.mock('safe-regex2', () => {
   return {
     default: { myDefaultKey: fn },
     safeRegex: fn,
-  }
-})
+  };
+});
 
 describe('regexpChecker', () => {
   it('should call se2', () => {
@@ -26,12 +26,12 @@ describe('regexpChecker', () => {
 
     test('false', () => {
       vi.mocked(safeRegex).mockReturnValue(false);
-      expect(call().isSafe).toBe(false);  
+      expect(call().isSafe).toBe(false);
     });
 
     test('true', () => {
       vi.mocked(safeRegex).mockReturnValue(true);
-      expect(call().isSafe).toBe(true);  
+      expect(call().isSafe).toBe(true);
     });
   });
 });

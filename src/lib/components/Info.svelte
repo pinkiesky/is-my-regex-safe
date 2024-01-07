@@ -4,24 +4,24 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
   const furtherReading = [
     {
       url: 'https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS',
-      title: 'Regular expression Denial of Service - ReDoS'
+      title: 'Regular expression Denial of Service - ReDoS',
     },
     {
       url: 'https://www.regular-expressions.info/catastrophic.html',
-      title: 'Runaway Regular Expressions: Catastrophic Backtracking'
+      title: 'Runaway Regular Expressions: Catastrophic Backtracking',
     },
     {
       url: 'https://perlgeek.de/blog-en/perl-tips/in-search-of-an-exponetial-regexp.html',
-      title: 'In search of an exponential time regex'
+      title: 'In search of an exponential time regex',
     },
     {
       url: 'https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/regular-expression-dos-and-node.md',
-      title: 'Regular Expression DoS and Node.js'
+      title: 'Regular Expression DoS and Node.js',
     },
     {
       url: 'https://owasp.org/www-community/OWASP_Validation_Regex_Repository',
-      title: 'OWASP Validation Regex Repository'
-    }
+      title: 'OWASP Validation Regex Repository',
+    },
   ];
 </script>
 

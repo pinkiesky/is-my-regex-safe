@@ -14,8 +14,8 @@
   }
 </script>
 
-<section class='mainCheck'>
-  <form on:submit={check} class='form'>
+<section class="mainCheck">
+  <form on:submit={check} class="form">
     <h3>Is my <code>/regex/</code> safe?</h3>
     <input placeholder="/regex/" id="regexInput" type="text" bind:value={regexRaw} required />
     <button type="submit">

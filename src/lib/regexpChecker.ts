@@ -21,8 +21,8 @@ export function regexpChecker(regexRaw: string, checkForValidity: boolean): Chec
       return {
         regexRaw,
         status: RegexStatus.invalidJsRegex,
-        error: err?.toString() ?? 'unknown'
-      }
+        error: err?.toString() ?? 'unknown',
+      };
     }
   }
 
@@ -30,12 +30,12 @@ export function regexpChecker(regexRaw: string, checkForValidity: boolean): Chec
     return {
       status: safeRegex(regexRaw) ? RegexStatus.safe : RegexStatus.unsafe,
       regexRaw,
-    } 
+    };
   } catch (err: unknown) {
     return {
       regexRaw,
       status: RegexStatus.validationError,
       error: err?.toString() ?? 'unknown',
-    }
+    };
   }
 }

@@ -3,4 +3,4 @@
   import 'simpledotcss/simple.min.css';
 </script>
 
-<slot></slot>
+<slot />
