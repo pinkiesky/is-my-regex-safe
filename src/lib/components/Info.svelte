@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { getDirectLinkToCheck } from '$lib/getDirectLinkToCheck';
+  import RegexCode from '$lib/components/RegexCode.svelte';
+
   const code = `const r = /(.*){1,32000}[bc]/i;
 r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
   const furtherReading = [
@@ -27,6 +30,39 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
       title: 'Regex Golf',
     },
   ];
+
+  const vulnExamples = [
+    {
+      regexp: '^[a-zA-Z0-9_]+([.-][a-zA-Z0-9_]+)*$',
+      title: 'User Login Validation',
+      description: 'This regex is meant to validate user logins, allowing alphanumeric characters with dots or hyphens in between. The nested repetition of groups could lead to performance issues.',
+    },
+    {
+      regexp: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',
+      title: 'Email Address Validation',
+      description: 'This regex validates email addresses. The combination of multiple quantifiers and character classes for both the local part and domain part of the email can create performance issues with certain inputs.',
+    },
+    {
+      regexp: '^(https?://)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}(:[0-9]+)?(/.*)?$',
+      title: 'URL Validation',
+      description: 'This regex is aimed at validating URLs. However, the nested groups and multiple quantifiers (* and +) for different URL segments can lead to excessive backtracking, especially with malformed or very long inputs.',
+    },
+    {
+      regexp: '^([0-9]{1,3}\.){3}[0-9]{1,3}$',
+      title: 'IPv4 Address Validation',
+      description: `Designed to validate IPv4 addresses, the repeated groups with quantifiers can be a source of performance degradation, especially if there's an attempt to input excessively long sequences of numbers and dots.`,
+    },
+    {
+      regexp: '^([a-fA-F0-9]{64})+$',
+      title: 'Hash Code Validation (e.g., SHA-256)',
+      description: 'Intended to validate a SHA-256 hash, this regex can cause issues because of the + quantifier at the end, making it susceptible to long, repetitive, non-matching inputs.',
+    },
+    {
+      regexp: '^([0-9]{4}-[0-9]{2}-[0-9]{2})+$',
+      title: 'Date Validation (YYYY-MM-DD)',
+      description: 'This regex is for validating dates in the YYYY-MM-DD format. The use of + at the end can lead to issues with long, non-matching inputs.',
+    },
+  ]
 </script>
 
 <div class="infoPanelRoot">
@@ -44,14 +80,17 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
     <p>Sure, evaluate these codes in your console (<kbd>F12</kbd>) or Node REPL.</p>
     <pre><code>{code}</code></pre>
     <p>But the tab will freeze forever.</p>
-    <p>
-      Also, here is
-      <a
-        href="/check/%5E(%5Ba-zA-Z0-9_%5C.%5C-%5D)%2B%5C%40((%5Ba-zA-Z0-9%5C-%5D)%2B%5C.)%2B(%5Ba-zA-Z0-9%5D%7B2%2C4%7D)%2B%24"
-        >a more realistic email regex</a
-      >
-      as an example.
-    </p>
+  </div>
+  <div class="infoPanel">
+    <h4>Other examples of "evil regexp"</h4>
+    <ul>
+      {#each vulnExamples as { regexp, title, description }}
+        <li>
+          <a href={getDirectLinkToCheck(regexp)} target="_blank">{title}</a>: <RegexCode regexRaw={regexp} />
+          <p>{description}</p>
+        </li>
+      {/each}
+    </ul>
   </div>
   <div class="infoPanel">
     <h4>Further reading</h4>
