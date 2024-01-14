@@ -44,13 +44,21 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
     <p>Sure, evaluate these codes in your console (<kbd>F12</kbd>) or Node REPL.</p>
     <pre><code>{code}</code></pre>
     <p>But the tab will freeze forever.</p>
+    <p>
+      Also, here is
+      <a
+        href="/check/%5E(%5Ba-zA-Z0-9_%5C.%5C-%5D)%2B%5C%40((%5Ba-zA-Z0-9%5C-%5D)%2B%5C.)%2B(%5Ba-zA-Z0-9%5D%7B2%2C4%7D)%2B%24"
+        >a more realistic email regex</a
+      >
+      as an example.
+    </p>
   </div>
   <div class="infoPanel">
     <h4>Further reading</h4>
     <ul>
       {#each furtherReading as { url, title }}
         <li>
-          <a href={url}>{title}</a>
+          <a href={url} target="_blank">{title}</a>
         </li>
       {/each}
     </ul>

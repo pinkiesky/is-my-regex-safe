@@ -5,7 +5,7 @@
 
   export let result: CheckResult;
 
-  $: resultUrl = '/check/' + result.regexRaw;
+  $: resultUrl = '/check/' + encodeURIComponent(result.regexRaw);
 </script>
 
 {#if result.status === RegexStatus.invalidJsRegex}
