@@ -1,7 +1,7 @@
 import { vi, describe, it, expect, test } from 'vitest';
 
 import { safeRegex } from 'safe-regex2';
-import { regexpChecker } from './regexpChecker';
+import { RegexStatus, regexpChecker } from './regexpChecker';
 
 vi.mock('safe-regex2', () => {
   const fn = vi.fn();
@@ -26,12 +26,12 @@ describe('regexpChecker', () => {
 
     test('false', () => {
       vi.mocked(safeRegex).mockReturnValue(false);
-      expect(call().isSafe).toBe(false);
+      expect(call().status).toBe(RegexStatus.unsafe);
     });
 
     test('true', () => {
       vi.mocked(safeRegex).mockReturnValue(true);
-      expect(call().isSafe).toBe(true);
+      expect(call().status).toBe(RegexStatus.safe);
     });
   });
 });

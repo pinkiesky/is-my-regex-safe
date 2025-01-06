@@ -47,8 +47,8 @@
   .mainCheck {
     margin: 150px auto;
     max-width: 500px;
-    border: 1px solid gray;
+    border: 1px solid var(--text);
     border-radius: 10px;
-    background-color: #131313;
+    background-color: var(--bg);
   }
 </style>
