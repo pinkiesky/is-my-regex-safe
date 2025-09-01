@@ -16,7 +16,7 @@
 
 <section class="mainCheck">
   <form on:submit={check} class="form">
-    <h1 class="h3">Is my <code>/regex/</code> safe?</h1>
+    <h1 class="title">Is my <code>/regex/</code> safe?</h1>
     <input placeholder="/regex/" id="regexInput" type="text" bind:value={regexRaw} required />
     <button type="submit" class="submit-button">
       {#if result?.regexRaw === regexRaw && result?.status === RegexStatus.invalidJsRegex}
@@ -53,7 +53,7 @@
     background-color: var(--bg);
   }
 
-  .h3 {
+  .title {
     font-size: 2rem;
     line-height: 1;
     font-weight: 600;
