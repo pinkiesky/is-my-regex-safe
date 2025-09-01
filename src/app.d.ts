@@ -3,10 +3,8 @@
 declare global {
   namespace App {
     interface Platform {
-      env: {
-      };
-      context: {
-      };
+      env: {};
+      context: {};
       caches: CacheStorage & { default: Cache };
     }
   }
