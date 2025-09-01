@@ -16,7 +16,7 @@
 
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.setAttribute('href', 'https://ismyregexsafe.com/check');
+      canonical.setAttribute('href', 'https://is-my-regex-safe.zininalx.com/check');
     }
   });
 </script>

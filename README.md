@@ -19,7 +19,7 @@ The tool uses the `safe-regex2` library to analyze regular expressions and detec
 
 ## Usage
 
-1. Visit [ismyregexsafe.com](https://ismyregexsafe.com)
+1. Visit [is-my-regex-safe.com](https://is-my-regex-safe.zininalx.com)
 2. Enter your regular expression pattern
 3. Get instant feedback on whether your regex is safe or vulnerable
 

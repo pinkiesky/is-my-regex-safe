@@ -36,7 +36,7 @@
     if (canonical) {
       canonical.setAttribute(
         'href',
-        `https://ismyregexsafe.com/check/${encodeURIComponent(data.rawRegex)}`,
+        `https://is-my-regex-safe.zininalx.com/check/${encodeURIComponent(data.rawRegex)}`,
       );
     }
   });

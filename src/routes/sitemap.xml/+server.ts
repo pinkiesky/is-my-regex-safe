@@ -1,7 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
-  const baseUrl = 'https://ismyregexsafe.com';
+  const baseUrl = 'https://is-my-regex-safe.zininalx.com';
   const currentDate = new Date().toISOString().split('T')[0];
 
   const sitemap = `
