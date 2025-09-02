@@ -1,38 +1,55 @@
-# create-svelte
+# Is my /regex/ safe?
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A free online tool to check if your regular expressions are safe from ReDoS (Regular Expression Denial of Service) attacks. This tool helps developers identify potentially vulnerable regex patterns that could cause performance issues or security vulnerabilities.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **ReDoS Detection**: Identifies regex patterns vulnerable to Regular Expression Denial of Service attacks
+- **Real-time Validation**: Instant feedback on regex safety
+- **Free & Open Source**: No registration required, completely free to use
+- **Developer Friendly**: Simple interface designed for developers
+
+## How it works
+
+The tool uses the `safe-regex2` library to analyze regular expressions and detect potential ReDoS vulnerabilities. It checks for:
+
+- Catastrophic backtracking patterns
+- Exponential time complexity
+- Nested quantifiers that could cause performance issues
+
+## Usage
+
+1. Visit [is-my-regex-safe.com](https://is-my-regex-safe.zininalx.com)
+2. Enter your regular expression pattern
+3. Get instant feedback on whether your regex is safe or vulnerable
+
+## Development
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Setup
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+# Install dependencies
+npm install
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# Start development server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Contributing
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+## License
+
+This project is open source and available under the MIT License.
