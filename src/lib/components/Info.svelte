@@ -35,17 +35,20 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
     {
       regexp: '^[a-zA-Z0-9_]+([.-][a-zA-Z0-9_]+)*$',
       title: 'User Login Validation',
-      description: 'This regex is meant to validate user logins, allowing alphanumeric characters with dots or hyphens in between. The nested repetition of groups could lead to performance issues.',
+      description:
+        'This regex is meant to validate user logins, allowing alphanumeric characters with dots or hyphens in between. The nested repetition of groups could lead to performance issues.',
     },
     {
       regexp: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',
       title: 'Email Address Validation',
-      description: 'This regex validates email addresses. The combination of multiple quantifiers and character classes for both the local part and domain part of the email can create performance issues with certain inputs.',
+      description:
+        'This regex validates email addresses. The combination of multiple quantifiers and character classes for both the local part and domain part of the email can create performance issues with certain inputs.',
     },
     {
       regexp: '^(https?://)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,6}(:[0-9]+)?(/.*)?$',
       title: 'URL Validation',
-      description: 'This regex is aimed at validating URLs. However, the nested groups and multiple quantifiers (* and +) for different URL segments can lead to excessive backtracking, especially with malformed or very long inputs.',
+      description:
+        'This regex is aimed at validating URLs. However, the nested groups and multiple quantifiers (* and +) for different URL segments can lead to excessive backtracking, especially with malformed or very long inputs.',
     },
     {
       regexp: '^([0-9]{1,3}\.){3}[0-9]{1,3}$',
@@ -55,14 +58,16 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
     {
       regexp: '^([a-fA-F0-9]{64})+$',
       title: 'Hash Code Validation (e.g., SHA-256)',
-      description: 'Intended to validate a SHA-256 hash, this regex can cause issues because of the + quantifier at the end, making it susceptible to long, repetitive, non-matching inputs.',
+      description:
+        'Intended to validate a SHA-256 hash, this regex can cause issues because of the + quantifier at the end, making it susceptible to long, repetitive, non-matching inputs.',
     },
     {
       regexp: '^([0-9]{4}-[0-9]{2}-[0-9]{2})+$',
       title: 'Date Validation (YYYY-MM-DD)',
-      description: 'This regex is for validating dates in the YYYY-MM-DD format. The use of + at the end can lead to issues with long, non-matching inputs.',
+      description:
+        'This regex is for validating dates in the YYYY-MM-DD format. The use of + at the end can lead to issues with long, non-matching inputs.',
     },
-  ]
+  ];
 </script>
 
 <div class="infoPanelRoot">
@@ -86,7 +91,9 @@ r.test('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');`;
     <ul>
       {#each vulnExamples as { regexp, title, description }}
         <li>
-          <a href={getDirectLinkToCheck(regexp)} target="_blank">{title}</a>: <RegexCode regexRaw={regexp} />
+          <a href={getDirectLinkToCheck(regexp)} target="_blank">{title}</a>: <RegexCode
+            regexRaw={regexp}
+          />
           <p>{description}</p>
         </li>
       {/each}
